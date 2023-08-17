@@ -37,11 +37,17 @@ document.getElementById('withdraw-button').addEventListener('click' , function()
 
     withdrawBalance.innerText = withdrawTotal;
 
+
     const balanceTotal = document.getElementById('total-balance');
     const pBalance = balanceTotal.innerText;
     const pBalanceInt = parseFloat(pBalance);
-    const currentBalance =  pBalanceInt - withdrawInputInt;
-    balanceTotal.innerText = currentBalance;
+    if(withdrawInputInt > pBalanceInt){
+      alert('invalit amount');
+    }else{
+      const currentBalance =  pBalanceInt - withdrawInputInt;
+      balanceTotal.innerText = currentBalance;
+    }
+    
 
     withdrawInput.value='';
 })
